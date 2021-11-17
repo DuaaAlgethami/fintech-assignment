@@ -1,1 +1,1 @@
-# fintech-assignment
+# Fintech Bootcamp-assignments
