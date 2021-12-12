@@ -14,7 +14,7 @@ class Block:
         block_string = json.dumps(self.__dict__, sort_keys=True)
         return sha256(block_string.encode()).hexdigest()
     
- class Blockchain:
+class Blockchain:
     difficulty = 2
 
     def __init__(self):
