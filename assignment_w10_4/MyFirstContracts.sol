@@ -15,22 +15,19 @@ contract Bank{
     mapping(address=>uint) public account_balances;
 
     function transfer(uint amount, address acctToTransferTo) external {
-
+        require(account_balances[msg.sender]>amount, "Insufficent Funds!");
         account_balances[msg.sender] -= amount;
         account_balances[acctToTransferTo] += amount;
     }
 
 
     function withdraw(uint amount) external {
-
+        require(account_balances[msg.sender]>amount, "Insufficent Funds!");
         account_balances[msg.sender] -= amount;
         payable(msg.sender).transfer(amount);
+
     }
 
     receive () external payable{
-        account_balances[msg.sender] += msg.value;
+        account_balances[msg.sender] += msg.value;//delet
     }
-
-    
-
-}
